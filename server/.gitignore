@@ -1,0 +1,7 @@
+# Node modules (don’t upload installed packages)
+node_modules/
+
+# Environment variables (keep them secret)
+.env
+.env.local
+.env.*.local

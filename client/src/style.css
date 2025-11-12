@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+html, body {
+  background-color: hsl(230, 5%, 24%);
+  margin: 0;
+  padding: 0;
+  border: 1px solid #F2C36B;
+  scroll-behavior: smooth;
+}
+
+
+.home {
+  color: #F2C36B;
+}
+
+.searchInput::placeholder {
+  background-color: #5a565671;
+  padding-left: 40px;
+  font-size: larger;
+  color: #fff;
+}
+
+
+/* Aniamtion of hamburger */
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.7s ease-out forwards;
+}
+
+/* SkillCard */
+
+.skill-card:hover {
+  box-shadow: 0 0 20px #F3C069;
+  background-color: #F3C069;
+}
+
+/* Experience */
+
+.badge {
+  background-color: #4f545c; 
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 3px 0 0 3px;
+  position: relative;
+  top: 20px;
+  right: 70px;
+}
+
+.badge::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 48px;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 8px solid #4f545c; /* same color as background */
+}
+
+.dot {
+  box-shadow: 0 0 15px #F3C069;
+  padding: 2px;
+}
+
+/* ProjectCard */
+
+.project-btn:hover {
+  box-shadow: 0 0 10px #F3C069;
+}
+.project-btn {
+  box-shadow: 0 0 2.5px #F3C069;
+}
+
+/* contact form */
+
+
+
+.form-btn:hover {
+  box-shadow: 0 0 5px #F3C069;
+}
+
+.form-input::placeholder {
+  padding: 10px;
+  color: #fff;
+}
