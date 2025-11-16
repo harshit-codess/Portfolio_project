@@ -45,10 +45,11 @@ app.post("/api/contact", async (req, res) => {
 })
 
 
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
-    console.log(`app is listing on port 3000`);
-})
+// app.listen(port, () => {
+//     console.log(`app is listing on port 3000`);
+// })
 
-
+// do not use app.listen() in vercel
+module.exports = app
