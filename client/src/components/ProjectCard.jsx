@@ -1,9 +1,12 @@
 import React from 'react';
+import useOnScreen from '../useOnScreen';
 
 function ProjectCard({title, link, children}) {
+    const [ref, isVisible] = useOnScreen();
+
     return (
         <>
-            <div className="card w:40 sm:w-[80%] md:w-80  bg-[#4f545c] text-white rounded-md mx-20 mb-10 shadow-2xl ">
+            <div ref={ref} className={`card w:40 sm:w-[80%] md:w-80  bg-[#4f545c] text-white rounded-md mx-20 mb-10 shadow-2xl  fade-up ${isVisible ? "show" : ""}`} >
                 <img src="/ProjectOne.png" alt="#" className=" rounded-t-md " />
                 <h1 className="pl-10 pt-6 text-white text-lg font-medium">{title}</h1>
                 <p className='pl-10 pt-2'>{children}</p>

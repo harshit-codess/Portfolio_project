@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import useOnScreen from '../useOnScreen';
 
 
 function Form() {
@@ -9,6 +10,7 @@ function Form() {
         phone: "",
         message: "",
     });
+    const [ref, isVisible] = useOnScreen();
 
 
     const handleSubmit = async (event) => {
@@ -51,16 +53,16 @@ function Form() {
     }
 
     return (
-        <div className=' flex items-center justify-center mb-10'>
+        <div ref={ref} className={`flex items-center justify-center mb-20 fade-up ${isVisible ? "show" : ""}`} >
             
-            <form onSubmit={handleSubmit} className=' w-130 text-center text-white shadow-2xl bg-[#4f545c] h-110  contact-form mt-10 flex flex-col flex-wrap items-center rounded-md m:mr-100'>
+            <form onSubmit={handleSubmit} className='W-full sm:w-130 text-center text-white shadow-2xl bg-[#4f545c] h-110  contact-form mt-10 flex flex-col flex-wrap items-center rounded-md  m:mr-100'>
                 <h1 className='text-2xl text-[#F3C069]'>Get in touch form</h1>
                 <input type="text" id="name"
                     name='name'
                     placeholder="Enter the name"
                     value={form.name}
                     onChange={handleChange}
-                    className='m-5 border-2 border-white w-100 h-10 rounded form-input'
+                    className='m-5 border-2 border-white w-80 sm:w-100 h-10 rounded form-input'
                     required />
 
                 <input type="emailt" id="email"
@@ -68,7 +70,7 @@ function Form() {
                     placeholder="Enter the email"
                     value={form.email}
                     onChange={handleChange}
-                    className='m-5 border-2 border-white rounded w-100 h-10 form-input'
+                    className='m-5 border-2 border-white rounded  w-80 sm:w-100 h-10 form-input'
                     size={30} pattern='.+@gmail\.com' required />
 
                 <input type="tel" id="phone"
@@ -76,7 +78,7 @@ function Form() {
                     placeholder="Enter the phone no."
                     value={form.phone}
                     onChange={handleChange}
-                    className='m-5 border-2 border-white rounded w-100 h-10 form-input'
+                    className='m-5 border-2 border-white rounded  w-80 sm:w-100 h-10 form-input'
                     minLength={10}
                     maxLength={15}
                     required />
@@ -85,7 +87,7 @@ function Form() {
                     value={form.message}
                     onChange={handleChange}
                     placeholder='Enter the message'
-                    className='m-5 border-2 border-white rounded w-100 form-input'
+                    className='m-5 border-2 border-white rounded  w-80 sm:w-100 form-input'
                     maxLength={100} id='message' required></textarea>
 
                 <input type='submit' value="Submit" className='m-5 border-2 border-white rounded w-25 text-center bg-[#F3C069] form-btn' />

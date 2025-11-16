@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import useOnScreen from '../useOnScreen';
 
 function About() {
+    const [ref, isVisible] = useOnScreen(); 
 
     return (
         <>
-            <div id="about" className='About text-white mb-10 '>
+            <div id="about" ref={ref} className={`About text-white mb-10  fade-up ${isVisible ? "show" : ""}`}  >
                 <h1 className='font-bold my-10 text-4xl ml-34'>About</h1>
                 <div className='flex justify-center'>
                     <div className="border-t-3 w-11 text-[#F2B56B] mt-2.5 mr-2"></div>
@@ -16,8 +18,6 @@ function About() {
                         alwayseager to explore new technologies, improve performance, and learn better ways to turn ideas into real-world applications. <br />
                     </div>
                 </div>
-
-               
             </div >
         </>
     )

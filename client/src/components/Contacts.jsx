@@ -3,12 +3,15 @@ import Contact from "./Contact";
 import { MdOutlineMessage } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
+import useOnScreen from '../useOnScreen';
 
 
 function Contacts() {
+    const [ref, isVisible] = useOnScreen();
+
     return (
         <>
-            <div id='contact' className='flex flex-col justify-center items-center border-t-3 border-[#F3C069] h-80  bg-[#8e9094] space-y-3'>
+            <div id='contact' ref={ref} className={`flex flex-col justify-center items-center border-t-3 border-[#F3C069] h-80  bg-[#F3C069] space-y-3 fade-up ${isVisible ? "show" : ""}`} >
                 <h1 className="text-4xl font-bold text-center text-white my-4">Contact Me</h1>
                 <div className='flex space-x-10'>
                     <Contact name="hr6087@gmail.com" >
